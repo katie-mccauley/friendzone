@@ -34,7 +34,7 @@ namespace friendzone.Repositories
       string sql = @"
       SELECT 
       a.*,
-      f.id AS ConnectId
+      f.id AS friendId
       FROM follow f
       JOIN accounts a ON a.id = f.followerId
       WHERE f.followingId = @id;
@@ -48,7 +48,7 @@ namespace friendzone.Repositories
       string sql = @"
       SELECT 
       a.*, 
-      f.id AS ConnectId
+      f.id AS friendId
       FROM follow f
       JOIN accounts a ON a.id = f.followingId
       WHERE f.followerId = @id;

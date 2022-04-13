@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS accounts(
 CREATE TABLE IF NOT EXISTS follow(
   id INT NOT NULL AUTO_INCREMENT primary key COMMENT 'primary key',
   followerId varchar(255) NOT NULL,
-  followingId varchar(255),
+  followingId varchar(255) NOT NULL,
   FOREIGN KEY (followerId) REFERENCES accounts(id) ON DELETE CASCADE,
   FOREIGN KEY (followingId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 COMMENT '';
