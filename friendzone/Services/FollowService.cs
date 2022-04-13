@@ -22,5 +22,10 @@ namespace friendzone.Services
     {
       return _repo.GetFollowing(id);
     }
+
+    internal List<FriendZoneViewModel> GetFollowers(string id)
+    {
+      return _repo.GetFollowers(id);
+    }
   }
 }

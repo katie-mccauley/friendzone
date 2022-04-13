@@ -34,5 +34,19 @@ namespace friendzone.Controllers
         return BadRequest(e.Message);
       }
     }
+
+    [HttpGet("{id}/followers")]
+    public ActionResult<List<FriendZoneViewModel>> Getfollowers(string id)
+    {
+      try
+      {
+        List<FriendZoneViewModel> followers = _fs.GetFollowers(id);
+        return Ok(followers);
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }
