@@ -1,14 +1,17 @@
-
 {
   "folders": [
     {
-      "path": "friendzone.client",
-      "name": "client"
+      "name": "server",
+      "path": "friendzone"
     },
     {
-      "path": "friendzone",
-      "name": "server"
-    },{"path":".github/workflows", "name":"workflows"}
+      "name": "client",
+      "path": "friendzone.client"
+    },
+    {
+      "name": "workflows",
+      "path": ".github\\workflows"
+    }
   ],
   "settings": {
     "editor.suggestSelection": "first",

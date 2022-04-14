@@ -38,6 +38,20 @@ namespace friendzone.Controllers
       }
     }
 
+    [HttpGet("{id}")]
+    public ActionResult<Profile> GetById(string id)
+    {
+      try
+      {
+        return Ok(_ps.GetById(id));
+      }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.Message);
+      }
+    }
+
     [HttpGet("{id}/following")]
     public ActionResult<List<FriendZoneViewModel>> Getfollowing(string id)
     {

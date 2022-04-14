@@ -17,5 +17,11 @@ namespace friendzone.Services
     {
       return _repo.GetAll();
     }
+
+    internal Profile GetById(string id)
+    {
+      Profile profile = _repo.GetById(id);
+      return profile;
+    }
   }
 }
