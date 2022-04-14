@@ -15,6 +15,12 @@ class FollowService {
     logger.log("All of the following for the active person")
     AppState.following = res.data
   }
+
+  async createFollow(follow) {
+    const res = await api.post('api/follow', follow)
+    logger.log("creating a new friend", res.data)
+    AppState.following.push(res.data)
+  }
 }
 
 export const followService = new FollowService()

@@ -20,6 +20,9 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-10 bg-white text-dark">
+            <h3>
+              <i class="mdi mdi-heart selectable" @click="createFollow()"></i>
+            </h3>
             <img :src="active.picture" class="img-fluid" alt="" />
             {{ active.name }}
 
@@ -61,6 +64,18 @@ export default {
           await followService.getFollowing(AppState.activeProfile.id)
         } catch (error) {
           logger.error(error)
+        }
+      },
+      async createFollow() {
+        try {
+          let follow = {
+            followerId: AppState.account.id,
+            followingId: AppState.activeProfile.id
+          }
+          await followService.createFollow(follow)
+        } catch (error) {
+          logger.error(error)
+
         }
       },
       active: computed(() => AppState.activeProfile),
