@@ -1,12 +1,21 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using friendzone.Models;
+using friendzone.Repositories;
 
 namespace friendzone.Services
 {
-    public class ProfileService
+  public class ProfileService
+  {
+    private readonly ProfileRepository _repo;
+
+    public ProfileService(ProfileRepository repo)
     {
-        
+      _repo = repo;
     }
+
+    internal List<Profile> GetAll()
+    {
+      return _repo.GetAll();
+    }
+  }
 }

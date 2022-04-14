@@ -14,11 +14,28 @@ namespace friendzone.Controllers
     private readonly AccountService _accountService;
 
     private readonly FollowService _fs;
+    private readonly ProfileService _ps;
 
-    public ProfilesController(AccountService accountService, FollowService fs)
+    public ProfilesController(AccountService accountService, FollowService fs, ProfileService ps)
     {
       _accountService = accountService;
       _fs = fs;
+      _ps = ps;
+    }
+
+    [HttpGet]
+    public ActionResult<List<Profile>> GetAll()
+    {
+      try
+      {
+        List<Profile> profiles = _ps.GetAll();
+        return Ok(profiles);
+      }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.Message);
+      }
     }
 
     [HttpGet("{id}/following")]

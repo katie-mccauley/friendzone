@@ -37,6 +37,8 @@ namespace friendzone
       services.AddScoped<AccountService>();
       services.AddTransient<FollowRepository>();
       services.AddTransient<FollowService>();
+      services.AddTransient<ProfileRepository>();
+      services.AddTransient<ProfileService>();
     }
 
     private void ConfigureCors(IServiceCollection services)
